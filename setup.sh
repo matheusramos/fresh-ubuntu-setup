@@ -90,11 +90,11 @@ VIM_COLOR_PATH=Sierra-2.2.2/colors/sierra.vim
 mkdir -p $VIM_COLOR_DIR
 
 #set colorscheme
-wget -O $VIM_COLOR_DIR/color-vim.tar.gz $VIM_COLOR_TAR_URL #download file
 mkdir ~/temp_color_vim_dir
-tar -xzf $VIM_COLOR_DIR/color-vim.tar.gz -C ~/temp_color_vim_dir #uncompress
+wget -O ~/temp_color_vim_dir/color-vim.tar.gz $VIM_COLOR_TAR_URL #download file
+tar -xzf ~/temp_color_vim_dir/color-vim.tar.gz -C ~/temp_color_vim_dir #uncompress
 cp ~/temp_color_vim_dir/$VIM_COLOR_PATH $VIM_COLOR_DIR #copy colorscheme file
-rm -rf ~/temp_color_vim_dir $VIM_COLOR_DIR/color-vim.tar.gz #remove files
+rm -rf ~/temp_color_vim_dir #remove files
 
 cp .vimrc $HOME_DIR/.vimrc
 cp .gvimrc $HOME_DIR/.gvimrc
