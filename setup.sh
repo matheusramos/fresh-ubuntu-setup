@@ -16,6 +16,9 @@ ln -s $FILES_ROOT_DIR/Videos ~/Videos
 ln -s $FILES_ROOT_DIR/Dropbox ~/Dropbox
 ln -s $FILES_ROOT_DIR/dev ~/dev
 
+#Install packages
+sudo apt-get update
+
 #Install basic tools to programming
 # build-essentials: gcc, g++, make, libc and dpkg-dev
 # ctags: make a index of commands of several programming languages
