@@ -33,7 +33,7 @@ sudo apt-get install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextr
 sudo apt-get install -y openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless openjdk-7-jre-lib icedtea-7-plugin libreoffice-java-common 
 
 #Codecs
-sudo apt-get -y install ubuntu-restricted-extras
+sudo apt-get -y install ubuntu-restricted-extras #TODO: asks for manual configuration
 sudo apt-get -y install id3tool lame libjpeg-progs  flac faac faad sox  ffmpeg2theora libmpeg3-1  mpegdemux x264
 
 #fonts
@@ -48,10 +48,10 @@ sudo apt-get -y install guake
 sudo apt-get -y install vim-gtk vim-syntax-gtk vim-addon-manager vim-common
 sudo apt-get -y install nautilus-dropbox
 sudo apt-get -y install gimp inkscape audacity
-sudo apt-get -y install vlc mozilla-plugin-vlc
+sudo apt-get -y install vlc
 sudo apt-get -y install keepassx
 sudo apt-get -y install qbittorrent
-sudo apt-get -y install wireshark
+sudo apt-get -y install wireshark #TODO: asks for manual configuration
 sudo apt-get -y install chromium-browser
 sudo apt-get -y install skype
 
@@ -63,12 +63,13 @@ sudo apt-get -y purge transmission #Default torrent client
 #spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-#TODO atom,...
+sudo add-apt-repository ppa:webupd8team/atom
+#TODO ...
 
 sudo apt-get update
 
 #install packages from external repos
-sudo apt-get install -y spotify-client
+sudo apt-get install -y spotify-client atom
 
 
 #Updating IDS Hardware List - helps to recognize unknown devices
@@ -96,8 +97,8 @@ tar -xzf ~/temp_color_vim_dir/color-vim.tar.gz -C ~/temp_color_vim_dir #uncompre
 cp ~/temp_color_vim_dir/$VIM_COLOR_PATH $VIM_COLOR_DIR #copy colorscheme file
 rm -rf ~/temp_color_vim_dir #remove files
 
-cp .vimrc $HOME_DIR/.vimrc
-cp .gvimrc $HOME_DIR/.gvimrc
+cp .vimrc ~/.vimrc
+cp .gvimrc ~/.gvimrc
 
 #Unset 
 unset VIM_DIR
