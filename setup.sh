@@ -1,20 +1,21 @@
 #!/bin/bash
 
-FILES_ROOT_DIR="/mnt/files"
+HOME_DIR=/home/matheus
+FILES_ROOT_DIR=/mnt/files
 
-rmdir ~/Documents
-rmdir ~/Pictures
-rmdir ~/Downloads
-rmdir ~/Videos
-rmdir ~/Music
+rmdir $HOME_DIR/Documents
+rmdir $HOME_DIR/Pictures
+rmdir $HOME_DIR/Downloads
+rmdir $HOME_DIR/Videos
+rmdir $HOME_DIR/Music
 
-ln -s $FILES_ROOT_DIR/Documents ~/Documents
-ln -s $FILES_ROOT_DIR/Downloads ~/Downloads
-ln -s $FILES_ROOT_DIR/Music ~/Music
-ln -s $FILES_ROOT_DIR/Pictures ~/Pictures
-ln -s $FILES_ROOT_DIR/Videos ~/Videos
-ln -s $FILES_ROOT_DIR/Dropbox ~/Dropbox
-ln -s $FILES_ROOT_DIR/dev ~/dev
+ln -s $FILES_ROOT_DIR/Documents $HOME_DIR
+ln -s $FILES_ROOT_DIR/Downloads $HOME_DIR
+ln -s $FILES_ROOT_DIR/Music $HOME_DIR
+ln -s $FILES_ROOT_DIR/Pictures $HOME_DIR
+ln -s $FILES_ROOT_DIR/Videos $HOME_DIR
+ln -s $FILES_ROOT_DIR/Dropbox $HOME_DIR
+ln -s $FILES_ROOT_DIR/dev $HOME_DIR
 
 #Install packages
 sudo apt-get update
@@ -74,38 +75,42 @@ sudo apt-get update
 #install packages from external repos
 sudo apt-get install -y spotify-client atom
 
-
 #Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
 
-#Making VLC the default video player
+#Making VLC the default video player #TODO: don't work
 sudo sed -i 's/totem/vlc/g' /usr/share/applications/defaults.list
 
 #Startup applications
 #error 
-#sed -i 's/Autostart-enabled=false/Autostart-enabled=true/g' ~/.config/autostart/guake.desktop #guake
+#sed -i 's/Autostart-enabled=false/Autostart-enabled=true/g' $HOME_DIR/.config/autostart/guake.desktop #guake
 
 #Restore VIM backup
-VIM_DIR="~/.vim"
+VIM_DIR=$HOME_DIR/.vim
 VIM_COLOR_DIR=$VIM_DIR/colors
 VIM_COLOR_TAR_URL=https://github.com/AlessandroYorba/Sierra/archive/v2.2.2.tar.gz
-VIM_COLOR_PATH=Sierra-2.2.2/colors/sierra.vim 
+VIM_COLOR_PATH=Sierra-2.2.2/colors/sierra.vim
+VIM_COLOR_NAME=sierra
 
 mkdir -p $VIM_COLOR_DIR
 
 #set colorscheme
-mkdir ~/temp_color_vim_dir
-wget -O ~/temp_color_vim_dir/color-vim.tar.gz $VIM_COLOR_TAR_URL #download file
-tar -xzf ~/temp_color_vim_dir/color-vim.tar.gz -C ~/temp_color_vim_dir #uncompress
-cp ~/temp_color_vim_dir/$VIM_COLOR_PATH $VIM_COLOR_DIR #copy colorscheme file
-rm -rf ~/temp_color_vim_dir #remove files
+mkdir $HOME_DIR/temp_color_vim_dir
+wget -O $HOME_DIR/temp_color_vim_dir/color-vim.tar.gz $VIM_COLOR_TAR_URL #download file
+tar -xzf $HOME_DIR/temp_color_vim_dir/color-vim.tar.gz -C $HOME_DIR/temp_color_vim_dir #uncompress
+cp $HOME_DIR/temp_color_vim_dir/$VIM_COLOR_PATH $VIM_COLOR_DIR #copy colorscheme file
+rm -rf $HOME_DIR/temp_color_vim_dir #remove files
 
-cp .vimrc ~/.vimrc
-cp .gvimrc ~/.gvimrc
+cp .vimrc $HOME_DIR/.vimrc
+cp .gvimrc $HOME_DIR/.gvimrc
+
+echo "colorscheme $VIM_COLOR_NAME" >> $HOME_DIR/.vimrc
 
 #Unset 
+unset VIM_COLOR_NAME
 unset VIM_DIR
 unset VIM_COLOR_DIR
 unset VIM_COLOR_TAR_URL
 unset VIM_COLOR_PATH
 unset FILES_ROOT_DIR
+unset HOME_DIR
