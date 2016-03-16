@@ -58,6 +58,7 @@ sudo apt-get -y install qbittorrent
 sudo apt-get -y install wireshark #TODO: asks for manual configuration
 sudo apt-get -y install chromium-browser
 sudo apt-get -y install skype
+sudo apt-get -y install virtualbox
 
 #uninstall
 sudo apt-get -y purge transmission #Default torrent client
@@ -101,8 +102,8 @@ tar -xzf $HOME_DIR/temp_color_vim_dir/color-vim.tar.gz -C $HOME_DIR/temp_color_v
 cp $HOME_DIR/temp_color_vim_dir/$VIM_COLOR_PATH $VIM_COLOR_DIR #copy colorscheme file
 rm -rf $HOME_DIR/temp_color_vim_dir #remove files
 
-cp .vimrc $HOME_DIR/.vimrc
-cp .gvimrc $HOME_DIR/.gvimrc
+cp vimrc $HOME_DIR/.vimrc
+cp gvimrc $HOME_DIR/.gvimrc
 
 echo "colorscheme $VIM_COLOR_NAME" >> $HOME_DIR/.vimrc
 
