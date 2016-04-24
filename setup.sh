@@ -34,7 +34,7 @@ dkms module-assistant patch git
 sudo apt-get install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
 
 #Java and Java plugins
-sudo apt-get install -y openjdk-9-jdk openjdk-9-jre openjdk-9-jre-headless icedtea-plugin libreoffice-java-common 
+sudo apt-get install -y openjdk-9-jdk openjdk-9-jre openjdk-9-jre-headless icedtea-plugin libreoffice-java-common
 
 #Codecs
 sudo apt-get -y install ubuntu-restricted-extras #TODO: asks for manual configuration
@@ -50,7 +50,7 @@ sudo apt-get -y install gparted synaptic
 sudo apt-get -y install unity-tweak-tool
 
 #OTHERS
-sudo apt-get -y install guake 
+sudo apt-get -y install guake
 sudo apt-get -y install vim-gtk vim-syntax-gtk vim-addon-manager vim-common
 sudo apt-get -y install nautilus-dropbox
 sudo apt-get -y install gimp
@@ -62,7 +62,7 @@ sudo apt-get -y install qbittorrent
 sudo apt-get -y install wireshark #TODO: asks for manual configuration
 sudo apt-get -y install chromium-browser
 sudo apt-get -y install skype #TODO won't work
-sudo apt-get -y install virtualbox virtualbox-guest-additions-iso 
+sudo apt-get -y install virtualbox virtualbox-guest-additions-iso
 
 #uninstall
 sudo apt-get -y purge transmission-* #Default torrent client
@@ -85,11 +85,11 @@ sudo apt-get install -y atom
 #Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
 
-#Making VLC the default video player #TODO: don't work
-sudo sed -i 's/totem/vlc/g' /usr/share/applications/defaults.list
+#Making VLC the default video player
+sudo sed -i 's/totem/vlc/g' /usr/share/gnome/applications/defaults.list
 
 #Startup applications
-#error 
+#error
 #sed -i 's/Autostart-enabled=false/Autostart-enabled=true/g' $HOME_DIR/.config/autostart/guake.desktop #guake
 
 #Restore VIM backup
@@ -113,7 +113,7 @@ cp gvimrc $HOME_DIR/.gvimrc
 
 echo "colorscheme $VIM_COLOR_NAME" >> $HOME_DIR/.vimrc
 
-#Unset 
+#Unset
 unset VIM_COLOR_NAME
 unset VIM_DIR
 unset VIM_COLOR_DIR
