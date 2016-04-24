@@ -34,14 +34,16 @@ dkms module-assistant patch git
 sudo apt-get install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
 
 #Java and Java plugins
-sudo apt-get install -y openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless openjdk-7-jre-lib icedtea-7-plugin libreoffice-java-common 
+sudo apt-get install -y openjdk-9-jdk openjdk-9-jre openjdk-9-jre-headless icedtea-plugin libreoffice-java-common 
 
 #Codecs
 sudo apt-get -y install ubuntu-restricted-extras #TODO: asks for manual configuration
 sudo apt-get -y install id3tool lame libjpeg-progs  flac faac faad sox  ffmpeg2theora libmpeg3-1  mpegdemux x264
 
 #fonts
-sudo apt-get -y install fonts-droid ttf-anonymous-pro
+sudo apt-get -y install fonts-roboto
+sudo apt-get -y install fonts-noto
+sudo apt-get -y install ttf-anonymous-pro
 
 #Ubuntu
 sudo apt-get -y install gparted synaptic
@@ -51,19 +53,22 @@ sudo apt-get -y install unity-tweak-tool
 sudo apt-get -y install guake 
 sudo apt-get -y install vim-gtk vim-syntax-gtk vim-addon-manager vim-common
 sudo apt-get -y install nautilus-dropbox
-sudo apt-get -y install gimp inkscape audacity
+sudo apt-get -y install gimp
+sudo apt-get -y install inkscape
+sudo apt-get -y install audacity
 sudo apt-get -y install vlc
 sudo apt-get -y install keepassx
 sudo apt-get -y install qbittorrent
 sudo apt-get -y install wireshark #TODO: asks for manual configuration
 sudo apt-get -y install chromium-browser
-sudo apt-get -y install skype
-sudo apt-get -y install virtualbox
+sudo apt-get -y install skype #TODO won't work
+sudo apt-get -y install virtualbox virtualbox-guest-additions-iso 
 
 #uninstall
-sudo apt-get -y purge transmission #Default torrent client
+sudo apt-get -y purge transmission-* #Default torrent client
+sudo apt-get autoremove
 
-#Add external repos
+#Add external repos TODO: it asks to press enter do add the repository
 
 #spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
@@ -74,7 +79,8 @@ sudo add-apt-repository ppa:webupd8team/atom
 sudo apt-get update
 
 #install packages from external repos
-sudo apt-get install -y spotify-client atom
+sudo apt-get install -y spotify-client
+sudo apt-get install -y atom
 
 #Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
