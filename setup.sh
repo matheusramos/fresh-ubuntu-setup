@@ -1,21 +1,21 @@
 #!/bin/bash
 
 HOME_DIR=/home/matheus
-FILES_ROOT_DIR=/mnt/files
+#FILES_ROOT_DIR=/mnt/files
 
-rmdir $HOME_DIR/Documents
-rmdir $HOME_DIR/Pictures
-rmdir $HOME_DIR/Downloads
-rmdir $HOME_DIR/Videos
-rmdir $HOME_DIR/Music
+#rmdir $HOME_DIR/Documents
+#rmdir $HOME_DIR/Pictures
+#rmdir $HOME_DIR/Downloads
+#rmdir $HOME_DIR/Videos
+#rmdir $HOME_DIR/Music
 
-ln -s $FILES_ROOT_DIR/Documents $HOME_DIR
-ln -s $FILES_ROOT_DIR/Downloads $HOME_DIR
-ln -s $FILES_ROOT_DIR/Music $HOME_DIR
-ln -s $FILES_ROOT_DIR/Pictures $HOME_DIR
-ln -s $FILES_ROOT_DIR/Videos $HOME_DIR
-ln -s $FILES_ROOT_DIR/Dropbox $HOME_DIR
-ln -s $FILES_ROOT_DIR/dev $HOME_DIR
+#ln -s $FILES_ROOT_DIR/Documents $HOME_DIR
+#ln -s $FILES_ROOT_DIR/Downloads $HOME_DIR
+#ln -s $FILES_ROOT_DIR/Music $HOME_DIR
+#ln -s $FILES_ROOT_DIR/Pictures $HOME_DIR
+#ln -s $FILES_ROOT_DIR/Videos $HOME_DIR
+#ln -s $FILES_ROOT_DIR/Dropbox $HOME_DIR
+#ln -s $FILES_ROOT_DIR/dev $HOME_DIR
 
 #Install packages
 sudo apt-get update
@@ -33,8 +33,12 @@ dkms module-assistant patch git
 #Extracting tools
 sudo apt-get install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
 
-#Java and Java plugins
-sudo apt-get install -y openjdk-9-jdk openjdk-9-jre openjdk-9-jre-headless icedtea-plugin libreoffice-java-common
+#Java
+sudo apt-get install -y openjdk-8-jdk
+
+#dev
+sudo apt-get install -y npm
+sudo ln -s /usr/bin/nodejs /usr/bin/node #by default executable is **nodejs**, but bower expects **node**, see http://stackoverflow.com/questions/20886217/browserify-error-usr-bin-env-node-no-such-file-or-directory
 
 #Codecs
 sudo apt-get -y install ubuntu-restricted-extras #TODO: asks for manual configuration
