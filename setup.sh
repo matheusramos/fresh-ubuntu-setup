@@ -39,6 +39,7 @@ sudo apt-get install -y openjdk-8-jdk
 #dev
 sudo apt-get install -y npm
 sudo ln -s /usr/bin/nodejs /usr/bin/node #by default executable is **nodejs**, but bower expects **node**, see http://stackoverflow.com/questions/20886217/browserify-error-usr-bin-env-node-no-such-file-or-directory
+sudo apt-get install -y mvn #maven
 
 #Codecs
 sudo apt-get -y install ubuntu-restricted-extras #TODO: asks for manual configuration
@@ -67,6 +68,7 @@ sudo apt-get -y install wireshark #TODO: asks for manual configuration
 sudo apt-get -y install chromium-browser
 sudo apt-get -y install skype #TODO won't work
 sudo apt-get -y install virtualbox virtualbox-guest-additions-iso
+sudo apt-get -y install putty
 
 #uninstall
 sudo apt-get -y purge transmission-* #Default torrent client
