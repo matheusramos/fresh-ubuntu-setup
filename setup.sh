@@ -62,13 +62,14 @@ sudo apt-get -y install gimp
 sudo apt-get -y install inkscape
 sudo apt-get -y install audacity
 sudo apt-get -y install vlc
-sudo apt-get -y install keepassx
+sudo apt-get -y install keepassx #password manager
 sudo apt-get -y install qbittorrent
 sudo apt-get -y install wireshark #TODO: asks for manual configuration
 sudo apt-get -y install chromium-browser
 sudo apt-get -y install skype #TODO won't work
 sudo apt-get -y install virtualbox virtualbox-guest-additions-iso
 sudo apt-get -y install putty
+sudo apt-get -y install htop #a beautiful top
 
 #uninstall
 sudo apt-get -y purge transmission-* #Default torrent client
