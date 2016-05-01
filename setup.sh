@@ -50,9 +50,10 @@ sudo apt-get -y install fonts-roboto
 sudo apt-get -y install fonts-noto
 sudo apt-get -y install ttf-anonymous-pro
 
-#Ubuntu
+#System tools
 sudo apt-get -y install gparted synaptic
 sudo apt-get -y install unity-tweak-tool
+sudo apt -y install xdotool # using to set the default workspace
 
 #OTHERS
 sudo apt-get -y install guake
