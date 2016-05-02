@@ -48,6 +48,7 @@ sudo apt-get -y install id3tool lame libjpeg-progs  flac faac faad sox  ffmpeg2t
 #fonts
 sudo apt-get -y install fonts-roboto
 sudo apt-get -y install fonts-noto
+sudo apt-get -y install fonts-inconsolata
 sudo apt-get -y install ttf-anonymous-pro
 
 #System tools
