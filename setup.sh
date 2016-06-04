@@ -1,21 +1,20 @@
 #!/bin/bash
 
-HOME_DIR=/home/matheus
 #FILES_ROOT_DIR=/mnt/files
 
-#rmdir $HOME_DIR/Documents
-#rmdir $HOME_DIR/Pictures
-#rmdir $HOME_DIR/Downloads
-#rmdir $HOME_DIR/Videos
-#rmdir $HOME_DIR/Music
+#rmdir $HOME/Documents
+#rmdir $HOME/Pictures
+#rmdir $HOME/Downloads
+#rmdir $HOME/Videos
+#rmdir $HOME/Music
 
-#ln -s $FILES_ROOT_DIR/Documents $HOME_DIR
-#ln -s $FILES_ROOT_DIR/Downloads $HOME_DIR
-#ln -s $FILES_ROOT_DIR/Music $HOME_DIR
-#ln -s $FILES_ROOT_DIR/Pictures $HOME_DIR
-#ln -s $FILES_ROOT_DIR/Videos $HOME_DIR
-#ln -s $FILES_ROOT_DIR/Dropbox $HOME_DIR
-#ln -s $FILES_ROOT_DIR/dev $HOME_DIR
+#ln -s $FILES_ROOT_DIR/Documents $HOME
+#ln -s $FILES_ROOT_DIR/Downloads $HOME
+#ln -s $FILES_ROOT_DIR/Music $HOME
+#ln -s $FILES_ROOT_DIR/Pictures $HOME
+#ln -s $FILES_ROOT_DIR/Videos $HOME
+#ln -s $FILES_ROOT_DIR/Dropbox $HOME
+#ln -s $FILES_ROOT_DIR/dev $HOME
 
 #Install packages
 sudo apt-get update
@@ -40,6 +39,7 @@ sudo apt-get install -y openjdk-8-jdk
 sudo apt-get install -y npm
 sudo ln -s /usr/bin/nodejs /usr/bin/node #by default executable is **nodejs**, but bower expects **node**, see http://stackoverflow.com/questions/20886217/browserify-error-usr-bin-env-node-no-such-file-or-directory
 sudo apt-get install -y mvn #maven
+sudo apt-get install -y zeal #offline documentations
 
 #Codecs
 sudo apt-get -y install ubuntu-restricted-extras #TODO: asks for manual configuration
@@ -99,10 +99,10 @@ sudo sed -i 's/totem/vlc/g' /usr/share/gnome/applications/defaults.list
 
 #Startup applications
 #error
-#sed -i 's/Autostart-enabled=false/Autostart-enabled=true/g' $HOME_DIR/.config/autostart/guake.desktop #guake
+#sed -i 's/Autostart-enabled=false/Autostart-enabled=true/g' $HOME/.config/autostart/guake.desktop #guake
 
 #Restore VIM backup
-VIM_DIR=$HOME_DIR/.vim
+VIM_DIR=$HOME/.vim
 VIM_COLOR_DIR=$VIM_DIR/colors
 VIM_COLOR_TAR_URL=https://github.com/AlessandroYorba/Sierra/archive/v2.2.2.tar.gz
 VIM_COLOR_PATH=Sierra-2.2.2/colors/sierra.vim
@@ -111,16 +111,16 @@ VIM_COLOR_NAME=sierra
 mkdir -p $VIM_COLOR_DIR
 
 #set colorscheme
-mkdir $HOME_DIR/temp_color_vim_dir
-wget -O $HOME_DIR/temp_color_vim_dir/color-vim.tar.gz $VIM_COLOR_TAR_URL #download file
-tar -xzf $HOME_DIR/temp_color_vim_dir/color-vim.tar.gz -C $HOME_DIR/temp_color_vim_dir #uncompress
-cp $HOME_DIR/temp_color_vim_dir/$VIM_COLOR_PATH $VIM_COLOR_DIR #copy colorscheme file
-rm -rf $HOME_DIR/temp_color_vim_dir #remove files
+mkdir $HOME/temp_color_vim_dir
+wget -O $HOME/temp_color_vim_dir/color-vim.tar.gz $VIM_COLOR_TAR_URL #download file
+tar -xzf $HOME/temp_color_vim_dir/color-vim.tar.gz -C $HOME/temp_color_vim_dir #uncompress
+cp $HOME/temp_color_vim_dir/$VIM_COLOR_PATH $VIM_COLOR_DIR #copy colorscheme file
+rm -rf $HOME/temp_color_vim_dir #remove files
 
-cp vimrc $HOME_DIR/.vimrc
-cp gvimrc $HOME_DIR/.gvimrc
+cp vimrc $HOME/.vimrc
+cp gvimrc $HOME/.gvimrc
 
-echo "colorscheme $VIM_COLOR_NAME" >> $HOME_DIR/.vimrc
+echo "colorscheme $VIM_COLOR_NAME" >> $HOME/.vimrc
 
 #Unset
 unset VIM_COLOR_NAME
@@ -129,4 +129,3 @@ unset VIM_COLOR_DIR
 unset VIM_COLOR_TAR_URL
 unset VIM_COLOR_PATH
 unset FILES_ROOT_DIR
-unset HOME_DIR
