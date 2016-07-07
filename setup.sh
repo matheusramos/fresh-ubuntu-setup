@@ -27,7 +27,7 @@ sudo apt-get update
 # dkms, module-assistant: build linux/debian kernels
 # patch: apply the file generate by the diff command to patch new files (See man patch)
 sudo apt-get install -y build-essential exuberant-ctags dh-make debhelper fakeroot \
-dkms module-assistant patch git
+dkms module-assistant patch git subversion
 
 # Extracting tools
 sudo apt-get install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
@@ -72,6 +72,7 @@ sudo apt-get -y install skype #TODO won't work
 sudo apt-get -y install virtualbox virtualbox-guest-additions-iso
 sudo apt-get -y install putty
 sudo apt-get -y install htop #a beautiful top
+sudo apt -y install fortunes cowsay figlet lolcat fortunes-off # to play in command line
 
 # uninstall
 sudo apt-get -y purge transmission-* #Default torrent client
@@ -91,7 +92,8 @@ sudo apt-get update
 sudo apt-get install -y spotify-client
 sudo apt-get install -y atom
 
-# TODO: add snaps: atom, telegram, htop
+# TODO: add snaps: atom, htop
+sudo snap install telegram-sergiusens
 
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
