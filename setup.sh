@@ -38,7 +38,7 @@ sudo apt-get install -y openjdk-8-jdk
 # dev
 sudo apt-get install -y npm
 sudo ln -s /usr/bin/nodejs /usr/bin/node #by default executable is **nodejs**, but bower expects **node**, see http://stackoverflow.com/questions/20886217/browserify-error-usr-bin-env-node-no-such-file-or-directory
-sudo apt-get install -y mvn #maven
+sudo apt-get install -y maven
 sudo apt-get install -y zeal #offline documentations
 
 # Codecs
