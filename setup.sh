@@ -84,13 +84,20 @@ sudo apt-get autoremove
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo add-apt-repository ppa:webupd8team/atom
-#TODO ...
+
+# scala sbt
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+
+# TODO ...
 
 sudo apt-get update
 
 # install packages from external repos
-sudo apt-get install -y spotify-client
-sudo apt-get install -y atom
+sudo apt install -y spotify-client
+sudo apt install -y atom
+sudo apt install -y sbt
+
 
 # TODO: add snaps: atom, htop
 sudo snap install telegram-sergiusens
