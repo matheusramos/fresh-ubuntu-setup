@@ -83,11 +83,13 @@ sudo apt-get autoremove
 # Spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo add-apt-repository ppa:webupd8team/atom
 
 # scala sbt
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+
+sudo add-apt-repository -y ppa:webupd8team/atom # Atom
+sudo apt-add-repository -y ppa:numix/ppa # Numix icons
 
 # TODO ...
 
@@ -97,6 +99,7 @@ sudo apt-get update
 sudo apt install -y spotify-client
 sudo apt install -y atom
 sudo apt install -y sbt
+sudo apt install -y numix-icon-theme numix-icon-theme-circle
 
 
 # TODO: add snaps: atom, htop
