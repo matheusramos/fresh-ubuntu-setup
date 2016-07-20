@@ -33,7 +33,7 @@ dkms module-assistant patch git subversion
 sudo apt-get install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
 
 # Java
-sudo apt-get install -y openjdk-8-jdk
+sudo apt-get install -y openjdk-8-jdk default-jdk default-jdk-headless
 
 # dev
 sudo apt-get install -y npm
