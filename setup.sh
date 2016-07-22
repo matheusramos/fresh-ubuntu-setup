@@ -101,6 +101,18 @@ sudo apt install -y atom
 sudo apt install -y sbt
 sudo apt install -y numix-icon-theme numix-icon-theme-circle
 
+# install atom packages
+apm install atom-beautify
+apm install change-case
+apm install color-picker
+apm install emmet
+apm install file-icons
+apm install language-r
+apm install language-scala
+apm install linter-js-standard
+apm install minimap
+apm install pigments
+apm install standard-formatter
 
 # TODO: add snaps: atom, htop
 sudo snap install telegram-sergiusens
