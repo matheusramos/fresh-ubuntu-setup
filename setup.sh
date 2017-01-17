@@ -1,105 +1,103 @@
 #!/bin/bash
 
-#FILES_ROOT_DIR=/mnt/files
+# TODO
+# make VLC the default video player
+# replace to snaps when necessary
 
-#rmdir $HOME/Documents
-#rmdir $HOME/Pictures
-#rmdir $HOME/Downloads
-#rmdir $HOME/Videos
-#rmdir $HOME/Music
+sudo apt update
+sudo apt upgrade # up to date
 
-#ln -s $FILES_ROOT_DIR/Documents $HOME
-#ln -s $FILES_ROOT_DIR/Downloads $HOME
-#ln -s $FILES_ROOT_DIR/Music $HOME
-#ln -s $FILES_ROOT_DIR/Pictures $HOME
-#ln -s $FILES_ROOT_DIR/Videos $HOME
-#ln -s $FILES_ROOT_DIR/Dropbox $HOME
-#ln -s $FILES_ROOT_DIR/dev $HOME
-
-#Install packages
-sudo apt-get update
-
-#Install basic tools to programming
+# Install basic tools to programming
 # build-essentials: gcc, g++, make, libc and dpkg-dev
 # ctags: make a index of commands of several programming languages
 # dh-make, debhelper: build deb packages
 # fakeroot: build packages without root permission
 # dkms, module-assistant: build linux/debian kernels
 # patch: apply the file generate by the diff command to patch new files (See man patch)
-sudo apt-get install -y build-essential exuberant-ctags dh-make debhelper fakeroot \
+sudo apt install -y build-essential exuberant-ctags dh-make debhelper fakeroot \
 dkms module-assistant patch git subversion
 
-# Extracting tools
-sudo apt-get install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
+# extracting tools
+sudo apt install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
 
-# Java
-sudo apt-get install -y openjdk-8-jdk default-jdk default-jdk-headless
+# java
+sudo apt install -y openjdk-8-jdk default-jdk default-jdk-headless
 
 # dev
-sudo apt-get install -y npm
-sudo ln -s /usr/bin/nodejs /usr/bin/node #by default executable is **nodejs**, but bower expects **node**, see http://stackoverflow.com/questions/20886217/browserify-error-usr-bin-env-node-no-such-file-or-directory
-sudo apt-get install -y maven
-sudo apt-get install -y zeal #offline documentations
+sudo apt install -y maven
+sudo apt install -y zeal #offline documentations
 
 # Codecs
-sudo apt-get -y install ubuntu-restricted-extras #TODO: asks for manual configuration
-sudo apt-get -y install id3tool lame libjpeg-progs  flac faac faad sox  ffmpeg2theora libmpeg3-1  mpegdemux x264
+sudo apt install -y ubuntu-restricted-extras #TODO: asks for manual configuration
+sudo apt install -y id3tool lame libjpeg-progs  flac faac faad sox  ffmpeg2theora libmpeg3-1  mpegdemux x264
 
 # fonts
-sudo apt-get -y install fonts-roboto
-sudo apt-get -y install fonts-noto
-sudo apt-get -y install fonts-inconsolata
-sudo apt-get -y install ttf-anonymous-pro
+sudo apt install -y fonts-inconsolata ttf-anonymous-pro
+# amazing fira mono (https://github.com/stevebscott/steves-bash-utils/blob/master/install-fira.sh)
+wget https://github.com/carrois/Fira/archive/master.zip $HOME -O $HOME/master.zip
+unzip $HOME/master.zip -d $HOME
+sudo mkdir -p /usr/share/fonts/opentype/fira_code
+sudo mkdir -p /usr/share/fonts/opentype/fira_mono
+sudo mkdir -p /usr/share/fonts/opentype/fira_sans
+sudo cp $HOME/Fira-master/Fira_Code_3_2/Fonts/FiraCode_OTF_32/* /usr/share/fonts/opentype/fira_code
+sudo cp $HOME/Fira-master/Fira_Mono_3_2/Fonts/FiraMono_OTF_32/* /usr/share/fonts/opentype/fira_mono
+sudo cp $HOME/Fira-master/Fira_Sans_4_2/Fonts/FiraSans_OTF_4203/Normal/Roman/* /usr/share/fonts/opentype/fira_sans
+sudo cp $HOME/Fira-master/Fira_Sans_4_2/Fonts/FiraSans_OTF_4203/Normal/Italic/* /usr/share/fonts/opentype/fira_sans
+rm -rf $HOME/master.zip $HOME/Fira-master
 
 # System tools
-sudo apt-get -y install gparted synaptic
-sudo apt-get -y install unity-tweak-tool
-sudo apt -y install xdotool # using to set the default workspace
+sudo apt install -y gparted synaptic
+sudo apt install -y unity-tweak-tool
+sudo apt install -y xdotool # set the default workspace
 
 # Other apps
-sudo apt-get -y install guake
-sudo apt-get -y install vim-gtk vim-syntax-gtk vim-addon-manager vim-common
-sudo apt-get -y install nautilus-dropbox
-sudo apt-get -y install gimp
-sudo apt-get -y install inkscape
-sudo apt-get -y install audacity
-sudo apt-get -y install vlc
-sudo apt-get -y install keepassx #password manager
-sudo apt-get -y install qbittorrent
-sudo apt-get -y install wireshark #TODO: asks for manual configuration
-sudo apt-get -y install chromium-browser
-sudo apt-get -y install skype #TODO won't work
-sudo apt-get -y install virtualbox virtualbox-guest-additions-iso
-sudo apt-get -y install putty
-sudo apt-get -y install htop #a beautiful top
-sudo apt -y install fortunes cowsay figlet lolcat fortunes-off # to play in command line
+sudo apt install -y guake
+sudo apt install -y vim-gtk vim-syntax-gtk vim-addon-manager vim-common
+sudo apt install -y nautilus-dropbox
+sudo apt install -y gimp
+sudo apt install -y inkscape
+sudo apt install -y audacity
+sudo apt install -y vlc
+sudo apt install -y keepassx #password manager
+sudo apt install -y qbittorrent
+sudo apt install -y wireshark #TODO: asks for manual configuration
+sudo apt install -y chromium-browser
+sudo apt install -y skype #TODO won't work
+sudo apt install -y virtualbox virtualbox-guest-additions-iso
+sudo apt install -y putty
+sudo apt install -y htop # a beautiful top
+sudo apt install -y fortunes cowsay figlet lolcat fortunes-off # to play in the command line
+
+# theming
+sudo apt install -y arc-theme
 
 # uninstall
-sudo apt-get -y purge transmission-* #Default torrent client
-sudo apt-get autoremove
+sudo apt purge -y transmission-* # default torrent client
+sudo apt autoremove
 
-# Add external repos TODO: it asks to press enter do add the repository
+# add external repos
 
-# Spotify
+# ppa
+sudo apt-add-repository -y ppa:webupd8team/atom # Atom
+sudo apt-add-repository -y ppa:numix/ppa # Numix icons
+
+# node 6
+curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+sudo /bin/bash nodesource_setup.sh
+
+# spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 
-# scala sbt
-echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
-
-sudo add-apt-repository -y ppa:webupd8team/atom # Atom
-sudo apt-add-repository -y ppa:numix/ppa # Numix icons
-
 # TODO ...
 
-sudo apt-get update
+sudo apt update
 
 # install packages from external repos
 sudo apt install -y spotify-client
 sudo apt install -y atom
-sudo apt install -y sbt
 sudo apt install -y numix-icon-theme numix-icon-theme-circle
+sudo apt install -y nodejs
 
 # install atom packages
 apm install atom-beautify
@@ -114,22 +112,13 @@ apm install minimap
 apm install pigments
 apm install standard-formatter
 
-# TODO: add snaps: atom, htop
+# snaps
 sudo snap install telegram-sergiusens
 
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
 
-# Making VLC the default video player
-sudo sed -i 's/totem/vlc/g' /usr/share/gnome/applications/defaults.list
-
-# Startup applications
-#error
-#sed -i 's/Autostart-enabled=false/Autostart-enabled=true/g' $HOME/.config/autostart/guake.desktop #guake
-
-######################
-#   Restore bashrc   #
-######################
+# insert customizations to bashrc
 cat bashrc >> $HOME/.bashrc
 
 ######################
@@ -161,4 +150,3 @@ unset VIM_DIR
 unset VIM_COLOR_DIR
 unset VIM_COLOR_TAR_URL
 unset VIM_COLOR_PATH
-unset FILES_ROOT_DIR
