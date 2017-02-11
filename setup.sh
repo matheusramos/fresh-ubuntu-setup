@@ -14,8 +14,8 @@ sudo apt upgrade # up to date
 # fakeroot: build packages without root permission
 # dkms, module-assistant: build linux/debian kernels
 # patch: apply the file generate by the diff command to patch new files (See man patch)
-sudo apt install -y build-essential exuberant-ctags dh-make debhelper fakeroot \
-dkms module-assistant patch git subversion
+sudo apt install -y build-essential git subversion
+sudo apt install -y exuberant-ctags dh-make debhelper fakeroot dkms module-assistant patch
 
 # extracting tools
 sudo apt install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
@@ -26,10 +26,6 @@ sudo apt install -y openjdk-8-jdk default-jdk default-jdk-headless
 # dev
 sudo apt install -y maven
 sudo apt install -y zeal #offline documentations
-
-# Codecs
-sudo apt install -y ubuntu-restricted-extras #TODO: asks for manual configuration
-sudo apt install -y id3tool lame libjpeg-progs  flac faac faad sox  ffmpeg2theora libmpeg3-1  mpegdemux x264
 
 # fonts
 sudo apt install -y fonts-inconsolata ttf-anonymous-pro
@@ -73,7 +69,7 @@ sudo apt install -y arc-theme
 
 # uninstall
 sudo apt purge -y transmission-* # default torrent client
-sudo apt autoremove
+sudo apt -y autoremove
 
 # add external repos
 
@@ -101,19 +97,16 @@ sudo apt install -y nodejs
 
 # install atom packages
 apm install atom-beautify
-apm install change-case
 apm install color-picker
 apm install emmet
 apm install file-icons
 apm install language-r
 apm install language-scala
-apm install linter-js-standard
 apm install minimap
 apm install pigments
-apm install standard-formatter
 
 # snaps
-sudo snap install telegram-sergiusens
+# sudo snap install telegram-sergiusens #buggy
 
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
@@ -126,8 +119,8 @@ cat bashrc >> $HOME/.bashrc
 ######################
 VIM_DIR=$HOME/.vim
 VIM_COLOR_DIR=$VIM_DIR/colors
-VIM_COLOR_TAR_URL=https://github.com/AlessandroYorba/Sierra/archive/v2.2.2.tar.gz
-VIM_COLOR_PATH=Sierra-2.2.2/colors/sierra.vim
+VIM_COLOR_TAR_URL=https://github.com/AlessandroYorba/Sierra/archive/v4.0.0.tar.gz
+VIM_COLOR_PATH=Sierra-4.0.0/colors/sierra.vim
 VIM_COLOR_NAME=sierra
 
 mkdir -p $VIM_COLOR_DIR
