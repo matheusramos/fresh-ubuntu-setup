@@ -43,8 +43,8 @@ rm -rf $HOME/master.zip $HOME/Fira-master
 
 # System tools
 sudo apt install -y gparted synaptic
-sudo apt install -y unity-tweak-tool
 sudo apt install -y xdotool # set the default workspace
+sudo apt install -y tmux
 
 # Other apps
 sudo apt install -y guake
@@ -77,9 +77,14 @@ sudo apt -y autoremove
 sudo apt-add-repository -y ppa:webupd8team/atom # Atom
 sudo apt-add-repository -y ppa:numix/ppa # Numix icons
 
-# node 6
-curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
-sudo /bin/bash nodesource_setup.sh
+# visual code
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+# nvm / install node
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+nvm install --lts
 
 # spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
@@ -92,6 +97,7 @@ sudo apt update
 # install packages from external repos
 sudo apt install -y spotify-client
 sudo apt install -y atom
+sudo apt install -y code
 sudo apt install -y numix-icon-theme numix-icon-theme-circle
 sudo apt install -y nodejs
 
@@ -119,7 +125,7 @@ cat bashrc >> $HOME/.bashrc
 ######################
 VIM_DIR=$HOME/.vim
 VIM_COLOR_DIR=$VIM_DIR/colors
-VIM_COLOR_TAR_URL=https://github.com/AlessandroYorba/Sierra/archive/v4.0.0.tar.gz
+VIM_COLOR_TAR_URL=https://github.com/AlessandroYorba/Sierra/archive/v5.0.0.tar.gz
 VIM_COLOR_PATH=Sierra-4.0.0/colors/sierra.vim
 VIM_COLOR_NAME=sierra
 
