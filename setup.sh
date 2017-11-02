@@ -86,6 +86,10 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
 nvm install --lts
 
+# yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 # spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -99,7 +103,7 @@ sudo apt install -y spotify-client
 sudo apt install -y atom
 sudo apt install -y code
 sudo apt install -y numix-icon-theme numix-icon-theme-circle
-sudo apt install -y nodejs
+sudo apt install -y yarn
 
 # install atom packages
 apm install atom-beautify
