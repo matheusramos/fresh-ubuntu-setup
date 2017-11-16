@@ -4,8 +4,8 @@
 # make VLC the default video player
 # replace to snaps when necessary
 
-sudo apt update
-sudo apt upgrade # up to date
+sudo apt update -y
+sudo apt upgrade -y # up to date
 
 # Install basic tools to programming
 # build-essentials: gcc, g++, make, libc and dpkg-dev
@@ -42,9 +42,11 @@ sudo cp $HOME/Fira-master/Fira_Sans_4_2/Fonts/FiraSans_OTF_4203/Normal/Italic/* 
 rm -rf $HOME/master.zip $HOME/Fira-master
 
 # System tools
+sudo apt install -y curl
 sudo apt install -y gparted synaptic
-sudo apt install -y xdotool # set the default workspace
+sudo apt install -y xdotool # to set the default workspace
 sudo apt install -y tmux
+sudo apt install -y gnome-tweak-tool
 
 # Other apps
 sudo apt install -y guake
@@ -129,8 +131,9 @@ cat bashrc >> $HOME/.bashrc
 ######################
 VIM_DIR=$HOME/.vim
 VIM_COLOR_DIR=$VIM_DIR/colors
-VIM_COLOR_TAR_URL=https://github.com/AlessandroYorba/Sierra/archive/v5.0.0.tar.gz
-VIM_COLOR_PATH=Sierra-4.0.0/colors/sierra.vim
+VIM_SIERRA_VERSION=5.0.0
+VIM_COLOR_TAR_URL=https://github.com/AlessandroYorba/Sierra/archive/v$VIM_SIERRA_VERSION.tar.gz
+VIM_COLOR_PATH=Sierra-$VIM_SIERRA_VERSION/colors/sierra.vim
 VIM_COLOR_NAME=sierra
 
 mkdir -p $VIM_COLOR_DIR
@@ -150,6 +153,7 @@ echo "colorscheme $VIM_COLOR_NAME" >> $HOME/.vimrc
 #Unset
 unset VIM_COLOR_NAME
 unset VIM_DIR
+unset VIM_SIERRA_VERSION
 unset VIM_COLOR_DIR
 unset VIM_COLOR_TAR_URL
 unset VIM_COLOR_PATH
