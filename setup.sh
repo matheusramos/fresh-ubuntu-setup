@@ -131,23 +131,25 @@ sudo update-pciids && update-usbids
 
 # Configure bash
 echo "Configuring bash..."
-wget $BASHRC_URL -o bashrc_temp
+wget $BASHRC_URL -O bashrc_temp
+echo "" >> .bashrc # adds a line break at eof
 cat bashrc_temp >> $HOME/.bashrc # append customizations to bashrc
 rm bashrc_temp
 
 echo "Configuring tmux..."
-wget $TMUX_CONFIG_URL -o .tmux.conf
+wget $TMUX_CONFIG_URL -O .tmux.conf
 
 echo "Configuring git..."
-wget $GIT_CONFIG_URL -o .gitconfig
+wget $GIT_CONFIG_URL -O .gitconfig
 # show git branch in terminal
-wget $GIT_BASH_CONFIG_URL -o gitbranchbash_temp
+wget $GIT_BASH_CONFIG_URL -O gitbranchbash_temp
+echo "" >> .bashrc # adds a line break at eof
 cat gitbranchbash_temp >> $HOME/.bashrc
 rm gitbranchbash_temp
 
 echo "Configuring vim..."
-wget VIMRC_URL -o .vimrc
-wget GVIMRC_URL -o .gvimrc
+wget $VIMRC_URL -O .vimrc
+wget $GVIMRC_URL -O .gvimrc
 
 ######################
 # Restore VIM backup #
