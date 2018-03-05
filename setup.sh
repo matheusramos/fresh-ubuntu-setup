@@ -53,6 +53,7 @@ rm -rf $HOME/master.zip $HOME/Fira-master
 
 # System tools
 sudo apt install -y curl
+sudo apt install -y openconnect # for vpn
 sudo apt install -y gparted synaptic
 sudo apt install -y xdotool # to set the default workspace
 sudo apt install -y tmux
