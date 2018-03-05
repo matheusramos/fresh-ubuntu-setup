@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# set some environment variables
+BASHRC_URL=https://gist.githubusercontent.com/matheusramos/e927c886944db08d90fe/raw/2a46e0105ab22f56965f5623e3bba0726a2e6931/.bashrc
+TMUX_CONFIG_URL=https://gist.githubusercontent.com/automagically/57a4322dac1300a76dcf18d05d21d683/raw/5fdc252bfaa9c9781736ed4dfae6d782a91787e6/.tmux.conf
+
+GIT_CONFIG_URL=https://gist.githubusercontent.com/matheusramos/6ee98c1c7a54c05e5245b7121e4ca154/raw/c52f0d82735bc9078f40bc21d8de6dbc0e2d74fc/.gitconfig
+GIT_BASH_CONFIG_URL=https://gist.githubusercontent.com/automagically/1298a845759432bf84a8718993bdfb59/raw/af4747e0407a03cf95779fc4e02a8d81021a0652/.sh
+
+VIMRC_URL=https://gist.githubusercontent.com/matheusramos/06ff732d6d92093ec74a7b0f40c661e5/raw/3583d430bb1f2b856b3181535c9015652a96a2cd/.vimrc
+GVIMRC_URL=https://gist.githubusercontent.com/matheusramos/2c63561e08b473e3cc145cfbc1482b92/raw/89931842ff6976a515c6addf11db36d535397657/.gvimrc
+
 # TODO
 # make VLC the default video player
 # replace to snaps when necessary
@@ -123,8 +133,25 @@ apm install pigments
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
 
-# insert customizations to bashrc
-cat bashrc >> $HOME/.bashrc
+# Configure bash
+echo "Configuring bash..."
+wget $BASHRC_URL -o bashrc_temp
+cat bashrc_temp >> $HOME/.bashrc # append customizations to bashrc
+rm bashrc_temp
+
+echo "Configuring tmux..."
+wget $TMUX_CONFIG_URL -o .tmux.conf
+
+echo "Configuring git..."
+wget $GIT_CONFIG_URL -o .gitconfig
+# show git branch in terminal
+wget $GIT_BASH_CONFIG_URL -o gitbranchbash_temp
+cat gitbranchbash_temp >> $HOME/.bashrc
+rm gitbranchbash_temp
+
+echo "Configuring vim..."
+wget VIMRC_URL -o .vimrc
+wget GVIMRC_URL -o .gvimrc
 
 ######################
 # Restore VIM backup #
@@ -144,9 +171,6 @@ wget -O $HOME/temp_color_vim_dir/color-vim.tar.gz $VIM_COLOR_TAR_URL #download f
 tar -xzf $HOME/temp_color_vim_dir/color-vim.tar.gz -C $HOME/temp_color_vim_dir #uncompress
 cp $HOME/temp_color_vim_dir/$VIM_COLOR_PATH $VIM_COLOR_DIR #copy colorscheme file
 rm -rf $HOME/temp_color_vim_dir #remove files
-
-cp vimrc $HOME/.vimrc
-cp gvimrc $HOME/.gvimrc
 
 echo "colorscheme $VIM_COLOR_NAME" >> $HOME/.vimrc
 
