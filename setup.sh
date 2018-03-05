@@ -102,16 +102,11 @@ nvm install --lts
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-# spotify
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-
 # TODO ...
 
 sudo apt update
 
 # install packages from external repos
-sudo apt install -y spotify-client
 sudo apt install -y atom
 sudo apt install -y code
 sudo apt install -y numix-icon-theme numix-icon-theme-circle
@@ -129,6 +124,7 @@ apm install pigments
 
 # snaps
 # sudo snap install telegram-sergiusens #buggy
+sudo snap install spotify
 
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
