@@ -38,18 +38,7 @@ sudo apt install -y maven
 sudo apt install -y zeal #offline documentations
 
 # fonts
-sudo apt install -y fonts-inconsolata ttf-anonymous-pro
-# amazing fira mono (https://github.com/stevebscott/steves-bash-utils/blob/master/install-fira.sh)
-wget https://github.com/carrois/Fira/archive/master.zip $HOME -O $HOME/master.zip
-unzip $HOME/master.zip -d $HOME
-sudo mkdir -p /usr/share/fonts/opentype/fira_code
-sudo mkdir -p /usr/share/fonts/opentype/fira_mono
-sudo mkdir -p /usr/share/fonts/opentype/fira_sans
-sudo cp $HOME/Fira-master/Fira_Code_3_2/Fonts/FiraCode_OTF_32/* /usr/share/fonts/opentype/fira_code
-sudo cp $HOME/Fira-master/Fira_Mono_3_2/Fonts/FiraMono_OTF_32/* /usr/share/fonts/opentype/fira_mono
-sudo cp $HOME/Fira-master/Fira_Sans_4_2/Fonts/FiraSans_OTF_4203/Normal/Roman/* /usr/share/fonts/opentype/fira_sans
-sudo cp $HOME/Fira-master/Fira_Sans_4_2/Fonts/FiraSans_OTF_4203/Normal/Italic/* /usr/share/fonts/opentype/fira_sans
-rm -rf $HOME/master.zip $HOME/Fira-master
+sudo apt install -y fonts-inconsolata ttf-anonymous-pro fonts-firacode
 
 # System tools
 sudo apt install -y curl
