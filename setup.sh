@@ -60,8 +60,6 @@ sudo apt install -y keepassx #password manager
 sudo apt install -y qbittorrent
 sudo apt install -y wireshark #TODO: asks for manual configuration
 sudo apt install -y chromium-browser
-sudo apt install -y skype #TODO won't work
-sudo apt install -y virtualbox virtualbox-guest-additions-iso
 sudo apt install -y putty
 sudo apt install -y htop # a beautiful top
 sudo apt install -y fortunes cowsay figlet lolcat fortunes-off # to play in the command line
@@ -116,6 +114,7 @@ apm install pigments
 # sudo snap install telegram-sergiusens #buggy
 sudo snap install spotify
 sudo snap install slack --classic
+sudo snap install skype
 
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
