@@ -113,7 +113,7 @@ apm install pigments
 # sudo snap install telegram-sergiusens #buggy
 sudo snap install spotify
 sudo snap install slack --classic
-sudo snap install skype
+sudo snap install skype --classic
 
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
