@@ -44,16 +44,13 @@ sudo apt install -y fonts-inconsolata ttf-anonymous-pro fonts-firacode
 sudo apt install -y curl
 sudo apt install -y openconnect # for vpn
 sudo apt install -y gparted synaptic
-sudo apt install -y xdotool # to set the default workspace
 sudo apt install -y tmux
 sudo apt install -y gnome-tweak-tool
 
 # Other apps
 sudo apt install -y guake
 sudo apt install -y vim-gtk vim-syntax-gtk vim-addon-manager vim-common
-sudo apt install -y nautilus-dropbox
-sudo apt install -y gimp
-sudo apt install -y inkscape
+sudo apt install -y gimp inkscape
 sudo apt install -y audacity
 sudo apt install -y vlc
 sudo apt install -y keepassx #password manager
@@ -63,6 +60,8 @@ sudo apt install -y chromium-browser
 sudo apt install -y putty
 sudo apt install -y htop # a beautiful top
 sudo apt install -y fortunes cowsay figlet lolcat fortunes-off # to play in the command line
+
+sudo apt install -y nautilus-dropbox
 
 # theming
 sudo apt install -y arc-theme
