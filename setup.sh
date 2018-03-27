@@ -73,7 +73,6 @@ sudo apt -y autoremove
 # add external repos
 
 # ppa
-sudo apt-add-repository -y ppa:webupd8team/atom # Atom
 sudo apt-add-repository -y ppa:numix/ppa # Numix icons
 
 # visual code
@@ -94,10 +93,16 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt update
 
 # install packages from external repos
-sudo apt install -y atom
 sudo apt install -y code
 sudo apt install -y numix-icon-theme numix-icon-theme-circle
 sudo apt install -y yarn
+
+# snaps
+sudo snap install spotify
+sudo snap install slack --classic
+sudo snap install skype --classic
+sudo snap install atom --classic
+sudo snap install telegram-desktop
 
 # install atom packages
 apm install atom-beautify
@@ -108,12 +113,6 @@ apm install language-r
 apm install language-scala
 apm install minimap
 apm install pigments
-
-# snaps
-# sudo snap install telegram-sergiusens #buggy
-sudo snap install spotify
-sudo snap install slack --classic
-sudo snap install skype --classic
 
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
