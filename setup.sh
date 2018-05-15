@@ -114,6 +114,20 @@ apm install language-scala
 apm install minimap
 apm install pigments
 
+# install vscode plugins
+code --install-extension dbaeumer.vscode-eslint # eslint
+code --install-extension EditorConfig.editorconfig # editorconfig
+code --install-extension PeterJausovec.vscode-docker # docker
+code --install-extension wayou.vscode-todo-highlight # highlight TODOs
+code --install-extension dracula-theme.theme-dracula # darcula theme!
+code --install-extension CoenraadS.bracket-pair-colorizer # colorize ur brackets
+code --install-extension oderwat.indent-rainbow # rainbownise ur indents
+code --install-extension xabikos.javascriptsnippets # es6 code snippets
+code --install-extension mikestead.dotenv # .env highlight support
+code --install-extension jpoissonnier.vscode-styled-components # highlight styled components
+code --install-extension formulahendry.auto-close-tag # auto close tags
+code --install-extension formulahendry.auto-rename-tag # auto rename tags
+
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
 
