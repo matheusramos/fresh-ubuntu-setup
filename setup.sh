@@ -105,12 +105,8 @@ sudo snap install atom --classic
 sudo snap install telegram-desktop
 
 # install atom packages
-apm install atom-beautify
-apm install color-picker
 apm install emmet
 apm install file-icons
-apm install language-r
-apm install language-scala
 apm install minimap
 apm install pigments
 
