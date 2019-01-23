@@ -31,7 +31,7 @@ sudo apt install -y exuberant-ctags dh-make debhelper fakeroot dkms module-assis
 sudo apt install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
 
 # java
-sudo apt install -y openjdk-8-jdk default-jdk default-jdk-headless
+sudo apt install -y openjdk-11-jdk default-jdk default-jdk-headless
 
 # dev
 sudo apt install -y maven
@@ -65,6 +65,7 @@ sudo apt install -y nautilus-dropbox
 
 # theming
 sudo apt install -y arc-theme
+sudo apt install -y numix-icon-theme numix-icon-theme-circle
 
 # uninstall
 sudo apt purge -y transmission-* # default torrent client
@@ -73,7 +74,6 @@ sudo apt -y autoremove
 # add external repos
 
 # ppa
-sudo apt-add-repository -y ppa:numix/ppa # Numix icons
 
 # visual code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -81,7 +81,7 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 # nvm / install node
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 nvm install --lts
 
 # yarn
@@ -94,7 +94,6 @@ sudo apt update
 
 # install packages from external repos
 sudo apt install -y code
-sudo apt install -y numix-icon-theme numix-icon-theme-circle
 sudo apt install -y yarn
 
 # snaps
