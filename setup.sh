@@ -4,9 +4,6 @@
 BASHRC_URL=https://gist.githubusercontent.com/matheusramos/e927c886944db08d90fe/raw/2a46e0105ab22f56965f5623e3bba0726a2e6931/.bashrc
 TMUX_CONFIG_URL=https://gist.githubusercontent.com/automagically/57a4322dac1300a76dcf18d05d21d683/raw/5fdc252bfaa9c9781736ed4dfae6d782a91787e6/.tmux.conf
 
-GIT_CONFIG_URL=https://gist.githubusercontent.com/matheusramos/6ee98c1c7a54c05e5245b7121e4ca154/raw/c52f0d82735bc9078f40bc21d8de6dbc0e2d74fc/.gitconfig
-GIT_BASH_CONFIG_URL=https://gist.githubusercontent.com/automagically/1298a845759432bf84a8718993bdfb59/raw/af4747e0407a03cf95779fc4e02a8d81021a0652/.sh
-
 VIMRC_URL=https://gist.githubusercontent.com/matheusramos/06ff732d6d92093ec74a7b0f40c661e5/raw/3583d430bb1f2b856b3181535c9015652a96a2cd/.vimrc
 GVIMRC_URL=https://gist.githubusercontent.com/matheusramos/2c63561e08b473e3cc145cfbc1482b92/raw/89931842ff6976a515c6addf11db36d535397657/.gvimrc
 
@@ -35,7 +32,14 @@ sudo apt install -y openjdk-11-jdk default-jdk default-jdk-headless
 
 # dev
 sudo apt install -y maven
-sudo apt install -y zeal #offline documentations
+sudo apt install -y zeal # offline documentations
+sudo apt install -y jq # sed json files
+
+# zsh and 'oh my zsh'
+sudo apt install zsh
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+# TODO: enable oh my zsh plugins (tmux, npm, etc) -> list them in a variable
+# TODO: change oh my zsh theme
 
 # fonts
 sudo apt install -y fonts-inconsolata ttf-anonymous-pro fonts-firacode
@@ -55,7 +59,7 @@ sudo apt install -y audacity
 sudo apt install -y vlc
 sudo apt install -y keepassx #password manager
 sudo apt install -y qbittorrent
-sudo apt install -y wireshark #TODO: asks for manual configuration
+sudo apt install -y wireshark #TODO: asks for user interaction at setup
 sudo apt install -y chromium-browser
 sudo apt install -y putty
 sudo apt install -y htop # a beautiful top
@@ -100,14 +104,7 @@ sudo apt install -y yarn
 sudo snap install spotify
 sudo snap install slack --classic
 sudo snap install skype --classic
-sudo snap install atom --classic
 sudo snap install telegram-desktop
-
-# install atom packages
-apm install emmet
-apm install file-icons
-apm install minimap
-apm install pigments
 
 # install vscode plugins
 code --install-extension dbaeumer.vscode-eslint # eslint
@@ -122,6 +119,7 @@ code --install-extension mikestead.dotenv # .env highlight support
 code --install-extension jpoissonnier.vscode-styled-components # highlight styled components
 code --install-extension formulahendry.auto-close-tag # auto close tags
 code --install-extension formulahendry.auto-rename-tag # auto rename tags
+# TODO: load personal configuration from somewhere
 
 # Updating IDS Hardware List - helps to recognize unknown devices
 sudo update-pciids && update-usbids
@@ -129,20 +127,12 @@ sudo update-pciids && update-usbids
 # Configure bash
 echo "Configuring bash..."
 wget $BASHRC_URL -O bashrc_temp
-echo "" >> .bashrc # adds a line break at eof
+echo "\n" >> .bashrc # adds a line break at eof
 cat bashrc_temp >> $HOME/.bashrc # append customizations to bashrc
 rm bashrc_temp
 
 echo "Configuring tmux..."
 wget $TMUX_CONFIG_URL -O .tmux.conf
-
-echo "Configuring git..."
-wget $GIT_CONFIG_URL -O .gitconfig
-# show git branch in terminal
-wget $GIT_BASH_CONFIG_URL -O gitbranchbash_temp
-echo "" >> .bashrc # adds a line break at eof
-cat gitbranchbash_temp >> $HOME/.bashrc
-rm gitbranchbash_temp
 
 echo "Configuring vim..."
 wget $VIMRC_URL -O .vimrc
