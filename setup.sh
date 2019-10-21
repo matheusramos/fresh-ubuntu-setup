@@ -21,17 +21,16 @@ sudo apt upgrade -y # up to date
 # fakeroot: build packages without root permission
 # dkms, module-assistant: build linux/debian kernels
 # patch: apply the file generate by the diff command to patch new files (See man patch)
-sudo apt install -y build-essential git subversion
+sudo apt install -y build-essential git
 sudo apt install -y exuberant-ctags dh-make debhelper fakeroot dkms module-assistant patch
 
 # extracting tools
 sudo apt install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
 
 # java
-sudo apt install -y openjdk-11-jdk default-jdk default-jdk-headless
+sudo apt install -y openjdk-11-jdk default-jdk default-jdk-headless maven
 
 # dev
-sudo apt install -y maven
 sudo apt install -y zeal # offline documentations
 sudo apt install -y jq # sed json files
 
@@ -42,7 +41,7 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 # TODO: change oh my zsh theme
 
 # fonts
-sudo apt install -y fonts-inconsolata ttf-anonymous-pro fonts-firacode
+sudo apt install -y fonts-inconsolata ttf-anonymous-pro fonts-firacode fonts-hack
 
 # System tools
 sudo apt install -y curl
@@ -65,8 +64,6 @@ sudo apt install -y putty
 sudo apt install -y htop # a beautiful top
 sudo apt install -y fortunes cowsay figlet lolcat fortunes-off # to play in the command line
 
-sudo apt install -y nautilus-dropbox
-
 # theming
 sudo apt install -y arc-theme
 sudo apt install -y numix-icon-theme numix-icon-theme-circle
@@ -78,11 +75,6 @@ sudo apt -y autoremove
 # add external repos
 
 # ppa
-
-# visual code
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 # nvm / install node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
@@ -97,7 +89,6 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt update
 
 # install packages from external repos
-sudo apt install -y code
 sudo apt install -y yarn
 
 # snaps
@@ -105,20 +96,27 @@ sudo snap install spotify
 sudo snap install slack --classic
 sudo snap install skype --classic
 sudo snap install telegram-desktop
+sudo snap install vscode --classic
 
 # install vscode plugins
-code --install-extension dbaeumer.vscode-eslint # eslint
-code --install-extension EditorConfig.editorconfig # editorconfig
-code --install-extension PeterJausovec.vscode-docker # docker
-code --install-extension wayou.vscode-todo-highlight # highlight TODOs
-code --install-extension dracula-theme.theme-dracula # darcula theme!
-code --install-extension CoenraadS.bracket-pair-colorizer # colorize ur brackets
-code --install-extension oderwat.indent-rainbow # rainbownise ur indents
-code --install-extension xabikos.javascriptsnippets # es6 code snippets
-code --install-extension mikestead.dotenv # .env highlight support
-code --install-extension jpoissonnier.vscode-styled-components # highlight styled components
-code --install-extension formulahendry.auto-close-tag # auto close tags
-code --install-extension formulahendry.auto-rename-tag # auto rename tags
+code --install-extension CoenraadS.bracket-pair-colorizer
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension dracula-theme.theme-dracula
+code --install-extension eamodio.gitlens
+code --install-extension EditorConfig.EditorConfig
+code --install-extension esbenp.prettier-vscode
+code --install-extension formulahendry.auto-close-tag
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension jpoissonnier.vscode-styled-components
+code --install-extension kumar-harsh.graphql-for-vscode
+code --install-extension mikestead.dotenv
+code --install-extension netcorext.uuid-generator
+code --install-extension oderwat.indent-rainbow
+code --install-extension shinnn.stylelint
+code --install-extension wayou.vscode-todo-highlight
+code --install-extension wmaurer.change-case
+code --install-extension xabikos.JavaScriptSnippets
+
 # TODO: load personal configuration from somewhere
 
 # Updating IDS Hardware List - helps to recognize unknown devices
