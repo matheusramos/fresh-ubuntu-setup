@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# set some environment variables
-BASHRC_URL=https://gist.githubusercontent.com/matheusramos/e927c886944db08d90fe/raw/2a46e0105ab22f56965f5623e3bba0726a2e6931/.bashrc
-TMUX_CONFIG_URL=https://gist.githubusercontent.com/automagically/57a4322dac1300a76dcf18d05d21d683/raw/5fdc252bfaa9c9781736ed4dfae6d782a91787e6/.tmux.conf
-
-VIMRC_URL=https://gist.githubusercontent.com/matheusramos/06ff732d6d92093ec74a7b0f40c661e5/raw/3583d430bb1f2b856b3181535c9015652a96a2cd/.vimrc
-GVIMRC_URL=https://gist.githubusercontent.com/matheusramos/2c63561e08b473e3cc145cfbc1482b92/raw/89931842ff6976a515c6addf11db36d535397657/.gvimrc
-
 # TODO
 # make VLC the default video player
 # replace to snaps when necessary
@@ -28,7 +21,7 @@ sudo apt install -y exuberant-ctags dh-make debhelper fakeroot dkms module-assis
 sudo apt install -y rar unrar zip unzip p7zip-full p7zip-rar arj zoo cabextract uudeview mpack unace sharutils
 
 # java
-sudo apt install -y openjdk-11-jdk default-jdk default-jdk-headless maven
+sudo apt install -y openjdk-14-jdk default-jdk default-jdk-headless maven
 
 # dev
 sudo apt install -y zeal # offline documentations
@@ -39,6 +32,7 @@ sudo apt install zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 # TODO: enable oh my zsh plugins (tmux, npm, etc) -> list them in a variable
 # TODO: change oh my zsh theme
+# TODO: requires user interaction
 
 # fonts
 sudo apt install -y fonts-inconsolata ttf-anonymous-pro fonts-firacode fonts-hack
@@ -53,16 +47,13 @@ sudo apt install -y gnome-tweak-tool
 # Other apps
 sudo apt install -y guake
 sudo apt install -y vim-gtk vim-syntax-gtk vim-addon-manager vim-common
-sudo apt install -y gimp inkscape
-sudo apt install -y audacity
-sudo apt install -y vlc
-sudo apt install -y keepassx #password manager
 sudo apt install -y qbittorrent
-sudo apt install -y wireshark #TODO: asks for user interaction at setup
-sudo apt install -y chromium-browser
 sudo apt install -y putty
 sudo apt install -y htop # a beautiful top
 sudo apt install -y fortunes cowsay figlet lolcat fortunes-off # to play in the command line
+
+echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
+sudo DEBIAN_FRONTEND=noninteractive apt install -y wireshark
 
 # theming
 sudo apt install -y arc-theme
@@ -77,7 +68,7 @@ sudo apt -y autoremove
 # ppa
 
 # nvm / install node
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 nvm install --lts
 
 # yarn
@@ -92,11 +83,20 @@ sudo apt update
 sudo apt install -y yarn
 
 # snaps
+sudo snap install chromium
+sudo snap install gimp
+sudo snap install inkscape
 sudo snap install spotify
+sudo snap install vlc
+
 sudo snap install slack --classic
 sudo snap install skype --classic
 sudo snap install telegram-desktop
-sudo snap install vscode --classic
+
+sudo snap install code --classic
+sudo snap install --beta authy
+sudo snap install dbeaver-ce
+sudo snap install postman
 
 # install vscode plugins
 code --install-extension CoenraadS.bracket-pair-colorizer
@@ -124,17 +124,15 @@ sudo update-pciids && update-usbids
 
 # Configure bash
 echo "Configuring bash..."
-wget $BASHRC_URL -O bashrc_temp
-echo "\n" >> .bashrc # adds a line break at eof
-cat bashrc_temp >> $HOME/.bashrc # append customizations to bashrc
-rm bashrc_temp
+echo "\n" >> $HOME/.bashrc # adds a line break at eof
+cat bashrc_appends >> $HOME/.bashrc # append customizations to bashrc
 
 echo "Configuring tmux..."
-wget $TMUX_CONFIG_URL -O .tmux.conf
+cp .tmux.conf $HOME/.tmux.conf
 
 echo "Configuring vim..."
-wget $VIMRC_URL -O .vimrc
-wget $GVIMRC_URL -O .gvimrc
+cp .vimrc $HOME/.vimrc
+cp .gvimrc $HOME/.gvimrc
 
 ######################
 # Restore VIM backup #
