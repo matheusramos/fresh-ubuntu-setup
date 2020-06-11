@@ -127,6 +127,10 @@ echo "Configuring bash..."
 echo "\n" >> $HOME/.bashrc # adds a line break at eof
 cat bashrc_appends >> $HOME/.bashrc # append customizations to bashrc
 
+# Config watchers to MAX
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+
 echo "Configuring tmux..."
 cp .tmux.conf $HOME/.tmux.conf
 
